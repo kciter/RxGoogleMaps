@@ -26,7 +26,11 @@ mapView.rx_didTapMarker
 * Swift 2.2
 
 ## Installation
-I want to CocoaPods for Installation. But, GoogleMaps is static libarary and CocoaPods doesn't support to static library... <br>Somebody help me!! (GoogleMaps doesn't support Carthage)
+* **CocoaPods**
+  * I want to CocoaPods for Installation. But, GoogleMaps is static libarary and CocoaPods doesn't support to static library... <br>Somebody help me!! (GoogleMaps doesn't support Carthage)
+
+* **Manually**
+  * To install manually the RxGoogleMaps in an app, just drag the `Sources/*.swift` file into your project.
 
 ## Reference
 * https://github.com/RxSwiftCommunity/RxMKMapView
