@@ -1,0 +1,11 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'RxGoogleMaps-Sample' do
+  use_frameworks!
+
+  pod 'GoogleMaps', '~> 1.13'
+  pod 'RxSwift', '~> 2.5'
+  pod 'RxCocoa', '~> 2.5'
+#  pod 'RxGoogleMaps', :path => '../'
+end
