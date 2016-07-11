@@ -27,7 +27,7 @@ mapView.rx_didTapMarker
 
 ## Installation
 * **CocoaPods**
-  * GoogleMaps is static libarary and CocoaPods doesn't support to static library...<br>So normally it can't be used. But, if you want to use CocoaPods, see below.
+  <br>GoogleMaps is static libarary and CocoaPods doesn't support to static library...<br>So normally it can't be used. But, if you want to use CocoaPods, see below.
   ```ruby
   # Podfile Sample
   target 'RxGoogleMaps-Sample' do
@@ -59,7 +59,7 @@ mapView.rx_didTapMarker
   It's very difficult. I recommend that you manually install.
 
 * **Manually**
-  * To install manually the RxGoogleMaps in an app, just drag the `Sources/*.swift` file into your project.
+  <br>To install manually the RxGoogleMaps in an app, just drag the `Sources/*.swift` file into your project.
 
 ## Support
 ### `GMSMapView+Rx`
