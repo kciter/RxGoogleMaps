@@ -32,7 +32,7 @@ mapView.rx_didTapMarker
   # Podfile Sample
   target 'RxGoogleMaps-Sample' do
     use_frameworks!
-    pod 'RxGoogleMaps'
+    pod 'RxGoogleMaps', :git => 'https://github.com/kciter/RxGoogleMaps', :tag => "0.1"
   end
 
   Pod::Installer.class_eval { def verify_no_static_framework_transitive_dependencies; end }
