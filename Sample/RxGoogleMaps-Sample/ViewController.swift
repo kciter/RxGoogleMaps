@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import RxSwift
 import RxCocoa
-//import RxGoogleMaps
+import RxGoogleMaps
 
 class ViewController: UIViewController {
     var mapView: GMSMapView!

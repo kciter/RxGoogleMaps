@@ -3,9 +3,27 @@
 
 target 'RxGoogleMaps-Sample' do
   use_frameworks!
+  pod 'GoogleMaps'
+  pod 'RxGoogleMaps', :path => '../'
+end
 
-  pod 'GoogleMaps', '~> 1.13'
-  pod 'RxSwift', '~> 2.5'
-  pod 'RxCocoa', '~> 2.5'
-#  pod 'RxGoogleMaps', :path => '../'
+Pod::Installer.class_eval { def verify_no_static_framework_transitive_dependencies; end }
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name.eql?("RxGoogleMaps")
+      target.build_configurations.each do |config|
+        config.build_settings['FRAMEWORK_SEARCH_PATHS'] = ["$(inherited)", "$(PODS_ROOT)/GoogleMaps/Frameworks"]
+      end
+    end
+  
+    if target.name.eql?("Pods-RxGoogleMaps-Sample")
+      puts "Removing GoogleMaps in #{target.name} OTHER_LDFLAGS"
+      target.build_configurations.each do |config|
+        xcconfig_path = config.base_configuration_reference.real_path
+        xcconfig = File.read(xcconfig_path)
+        File.open(xcconfig_path, "w") { |file| file << xcconfig.sub('-framework "GoogleMaps"', '') }
+      end
+    end
+  end
 end

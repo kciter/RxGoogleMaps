@@ -14,9 +14,6 @@
 		B6032DD01D2F67E9009F0715 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6032DCF1D2F67E9009F0715 /* Assets.xcassets */; };
 		B6032DD31D2F67E9009F0715 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6032DD11D2F67E9009F0715 /* LaunchScreen.storyboard */; };
 		B6032DDE1D2F67E9009F0715 /* RxGoogleMaps_SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6032DDD1D2F67E9009F0715 /* RxGoogleMaps_SampleTests.swift */; };
-		B61332B21D2F948800874798 /* GMSMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61332AF1D2F948800874798 /* GMSMapView+Rx.swift */; };
-		B61332B31D2F948800874798 /* GMSMarker+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61332B01D2F948800874798 /* GMSMarker+Rx.swift */; };
-		B61332B41D2F948800874798 /* RxGMSMapViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61332B11D2F948800874798 /* RxGMSMapViewDelegateProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +40,7 @@
 		B6032DD91D2F67E9009F0715 /* RxGoogleMaps-SampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RxGoogleMaps-SampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6032DDD1D2F67E9009F0715 /* RxGoogleMaps_SampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxGoogleMaps_SampleTests.swift; sourceTree = "<group>"; };
 		B6032DDF1D2F67E9009F0715 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B61332AF1D2F948800874798 /* GMSMapView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GMSMapView+Rx.swift"; path = "../../Sources/GMSMapView+Rx.swift"; sourceTree = "<group>"; };
-		B61332B01D2F948800874798 /* GMSMarker+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GMSMarker+Rx.swift"; path = "../../Sources/GMSMarker+Rx.swift"; sourceTree = "<group>"; };
-		B61332B11D2F948800874798 /* RxGMSMapViewDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxGMSMapViewDelegateProxy.swift; path = ../../Sources/RxGMSMapViewDelegateProxy.swift; sourceTree = "<group>"; };
+		B6A84D7A1D32581F004E6EBF /* RxGoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxGoogleMaps.framework; path = "DerivedData/RxGoogleMaps-Sample/Build/Products/Debug-iphonesimulator/RxGoogleMaps/RxGoogleMaps.framework"; sourceTree = "<group>"; };
 		DD2D3B0393E0F494CBAFBB2F /* Pods_RxGoogleMaps_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxGoogleMaps_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,6 +75,7 @@
 		87DA8100F9A0851576C78326 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6A84D7A1D32581F004E6EBF /* RxGoogleMaps.framework */,
 				DD2D3B0393E0F494CBAFBB2F /* Pods_RxGoogleMaps_Sample.framework */,
 				6A495ED3ABB166836107F41B /* Pods_RxGoogleMaps_SampleTests.framework */,
 			);
@@ -109,7 +105,6 @@
 		B6032DC71D2F67E9009F0715 /* RxGoogleMaps-Sample */ = {
 			isa = PBXGroup;
 			children = (
-				B61332AE1D2F947A00874798 /* RxGoogleMaps */,
 				B6032DC81D2F67E9009F0715 /* AppDelegate.swift */,
 				B6032DCA1D2F67E9009F0715 /* ViewController.swift */,
 				B6032DCC1D2F67E9009F0715 /* Main.storyboard */,
@@ -127,16 +122,6 @@
 				B6032DDF1D2F67E9009F0715 /* Info.plist */,
 			);
 			path = "RxGoogleMaps-SampleTests";
-			sourceTree = "<group>";
-		};
-		B61332AE1D2F947A00874798 /* RxGoogleMaps */ = {
-			isa = PBXGroup;
-			children = (
-				B61332AF1D2F948800874798 /* GMSMapView+Rx.swift */,
-				B61332B01D2F948800874798 /* GMSMarker+Rx.swift */,
-				B61332B11D2F948800874798 /* RxGMSMapViewDelegateProxy.swift */,
-			);
-			name = RxGoogleMaps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,11 +324,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B61332B21D2F948800874798 /* GMSMapView+Rx.swift in Sources */,
-				B61332B41D2F948800874798 /* RxGMSMapViewDelegateProxy.swift in Sources */,
 				B6032DCB1D2F67E9009F0715 /* ViewController.swift in Sources */,
 				B6032DC91D2F67E9009F0715 /* AppDelegate.swift in Sources */,
-				B61332B31D2F948800874798 /* GMSMarker+Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,8 +455,13 @@
 			baseConfigurationReference = 45ED3BECC0AAA756A12351C4 /* Pods-RxGoogleMaps-Sample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DerivedData/RxGoogleMaps-Sample/Build/Products/Debug-iphonesimulator/RxGoogleMaps",
+				);
 				INFOPLIST_FILE = "RxGoogleMaps-Sample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "kciter.RxGoogleMaps-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -485,8 +472,13 @@
 			baseConfigurationReference = 3A4FBA8226841569AA0AD255 /* Pods-RxGoogleMaps-Sample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DerivedData/RxGoogleMaps-Sample/Build/Products/Debug-iphonesimulator/RxGoogleMaps",
+				);
 				INFOPLIST_FILE = "RxGoogleMaps-Sample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "kciter.RxGoogleMaps-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

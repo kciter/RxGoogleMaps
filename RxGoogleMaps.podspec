@@ -8,7 +8,25 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/kciter/RxGoogleMaps.git", :tag => "#{s.version}" }
   s.platform     = :ios, '8.0'
   s.source_files = 'Sources/*.{swift}'
-  s.frameworks   = 'UIKit', 'Foundation'
+  s.frameworks   = [
+	'UIKit', 
+	'Foundation',
+    "Accelerate",
+    "AVFoundation",
+    "CoreBluetooth",
+    "CoreData",
+    "CoreLocation",
+    "CoreText",
+    "GLKit",
+    "ImageIO",
+    "OpenGLES",
+    "QuartzCore",
+    "Security",
+    "SystemConfiguration",
+    "CoreGraphics",
+	"GoogleMaps"
+  ]
+  s.libraries    = 'c++', 'z', 'icucore'
   s.dependency 'RxSwift', '~> 2.5'
   s.dependency 'RxCocoa', '~> 2.5'
   s.dependency 'GoogleMaps', '~> 1.13'
