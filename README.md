@@ -1,7 +1,7 @@
 # RxGoogleMaps
 RxGoogleMaps is a [RxSwift](https://github.com/ReactiveX/RxSwift) wrapper for [GoogleMaps](https://developers.google.com/maps/documentation/ios-sdk/start) delegate.
 
-## Usage
+## Example
 ```swift
 mapView = GMSMapView(frame: UIScreen.mainScreen().bounds)
 view.addSubview(mapView)
@@ -27,12 +27,12 @@ mapView.rx_didTapMarker
 
 ## Installation
 * **CocoaPods**
-  * GoogleMaps is static libarary and CocoaPods doesn't support to static library...<br>So normally it can't be used. But, if you want to use CocoaPods, see below.
+  <br>GoogleMaps is static libarary and CocoaPods doesn't support to static library...<br>So normally it can't be used. But, if you want to use CocoaPods, see below.
   ```ruby
   # Podfile Sample
   target 'RxGoogleMaps-Sample' do
     use_frameworks!
-    pod 'RxGoogleMaps'
+    pod 'RxGoogleMaps', :git => 'https://github.com/kciter/RxGoogleMaps', :tag => "0.1"
   end
 
   Pod::Installer.class_eval { def verify_no_static_framework_transitive_dependencies; end }
@@ -59,7 +59,54 @@ mapView.rx_didTapMarker
   It's very difficult. I recommend that you manually install.
 
 * **Manually**
-  * To install manually the RxGoogleMaps in an app, just drag the `Sources/*.swift` file into your project.
+  <br>To install manually the RxGoogleMaps in an app, just drag the `Sources/*.swift` file into your project.
+
+## Support
+### `GMSMapView+Rx`
+```swift
+// MARK: Observer Properties
+public var rx_selectedMarker: AnyObserver<GMSMarker?>
+public var rx_zoom: AnyObserver<Float>
+
+// MARK: Marker Events
+public var rx_didTapMarker: ControlEvent<GMSMarker>
+public var rx_didDragMarker: ControlEvent<GMSMarker>
+public var rx_didBeginDraggingMarker: ControlEvent<GMSMarker>
+public var rx_didEndDraggingMarker: ControlEvent<GMSMarker>
+
+// MARK: Camera Events
+public var rx_willMove: ControlEvent<Bool>
+public var rx_didChangeCameraPosition: ControlEvent<GMSCameraPosition>
+public var rx_idleAtCameraPosition: ControlEvent<GMSCameraPosition>
+
+// MARK: User Interaction
+public var rx_didTapAtCoordinate: ControlEvent<CLLocationCoordinate2D>
+public var rx_didLongPressAtCoordinate: ControlEvent<CLLocationCoordinate2D>
+
+// MARK: Overlay Events
+public var rx_didTapOverlay: ControlEvent<GMSOverlay>
+
+// MARK: InfoWindow Events
+public var rx_didTapInfoWindowOfMarker: ControlEvent<GMSMarker>
+public var rx_didLongPressInfoWindowOfMarker: ControlEvent<GMSMarker>
+public var rx_didCloseInfoWindowOfMarker: ControlEvent<GMSMarker>
+
+// MARK: MyLocationButton Event
+public var rx_didTapMyLocationButtonForMapView: ControlEvent<Void>
+
+// MARK: Rendering Events
+public var rx_mapViewSnapshotReady: ControlEvent<Void>
+public var rx_mapViewDidStartTileRendering: ControlEvent<Void>
+public var rx_mapViewDidFinishTileRendering: ControlEvent<Void>
+```
+
+### `GMSMarker+Rx`
+```swift
+// MARK: Observer Properties
+public var rx_map: AnyObserver<GMSMapView>
+public var rx_icon: AnyObserver<UIImage?>
+public var rx_position: AnyObserver<CLLocationCoordinate2D>
+```
 
 ## Reference
 * https://github.com/RxSwiftCommunity/RxMKMapView
