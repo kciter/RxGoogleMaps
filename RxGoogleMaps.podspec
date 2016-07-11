@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/kciter/RxGoogleMaps.git", :tag => "#{s.version}" }
   s.platform     = :ios, '8.0'
   s.source_files = 'Sources/*.{swift}'
+  s.ios.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/GoogleMaps/Frameworks"' }
   s.frameworks   = [
 	'UIKit', 
 	'Foundation',

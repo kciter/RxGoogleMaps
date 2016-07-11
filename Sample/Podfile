@@ -3,7 +3,6 @@
 
 target 'RxGoogleMaps-Sample' do
   use_frameworks!
-  pod 'GoogleMaps'
   pod 'RxGoogleMaps', :path => '../'
 end
 
@@ -11,12 +10,6 @@ Pod::Installer.class_eval { def verify_no_static_framework_transitive_dependenci
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
-    if target.name.eql?("RxGoogleMaps")
-      target.build_configurations.each do |config|
-        config.build_settings['FRAMEWORK_SEARCH_PATHS'] = ["$(inherited)", "$(PODS_ROOT)/GoogleMaps/Frameworks"]
-      end
-    end
-  
     if target.name.eql?("Pods-RxGoogleMaps-Sample")
       puts "Removing GoogleMaps in #{target.name} OTHER_LDFLAGS"
       target.build_configurations.each do |config|
