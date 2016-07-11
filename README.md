@@ -23,14 +23,40 @@ mapView.rx_didTapMarker
 
 ## Requirements
 * iOS 8.0+
-* Swift 2.2
-* RxSwift ~> 2.5
-* RxCocoa ~> 2.5
-* GoogleMaps ~> 1.13
+* Swift 2.2+
 
 ## Installation
 * **CocoaPods**
-  * GoogleMaps is static libarary and CocoaPods doesn't support to static library... <br>Somebody help me!! (GoogleMaps doesn't support Carthage)
+  * GoogleMaps is static libarary and CocoaPods doesn't support to static library...<br>So normally it can't be used. But, if you want to use CocoaPods, see below.
+  ```ruby
+  # Podfile Sample
+  target 'RxGoogleMaps-Sample' do
+    use_frameworks!
+    pod 'RxGoogleMaps'
+  end
+
+  Pod::Installer.class_eval { def verify_no_static_framework_transitive_dependencies; end }
+
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      if target.name.eql?("RxGoogleMaps")
+        target.build_configurations.each do |config|
+          config.build_settings['FRAMEWORK_SEARCH_PATHS'] = ["$(inherited)", "$(PODS_ROOT)/GoogleMaps/Frameworks"]
+        end
+      end
+  
+      if target.name.eql?("Pods-RxGoogleMaps-Sample")
+        puts "Removing GoogleMaps in #{target.name} OTHER_LDFLAGS"
+        target.build_configurations.each do |config|
+          xcconfig_path = config.base_configuration_reference.real_path
+          xcconfig = File.read(xcconfig_path)
+          File.open(xcconfig_path, "w") { |file| file << xcconfig.sub('-framework "GoogleMaps"', '') }
+        end
+      end
+    end
+  end
+  ```
+  It's very difficult. I recommend that you manually install.
 
 * **Manually**
   * To install manually the RxGoogleMaps in an app, just drag the `Sources/*.swift` file into your project.
