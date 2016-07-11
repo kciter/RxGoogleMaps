@@ -30,7 +30,7 @@ mapView.rx_didTapMarker
   <br>GoogleMaps is static libarary and CocoaPods doesn't support to static library...<br>So normally it can't be used. But, if you want to use CocoaPods, see below.
   ```ruby
   # Podfile Sample
-  target 'RxGoogleMaps-Sample' do
+  target 'Your-App' do
     use_frameworks!
     pod 'RxGoogleMaps', :git => 'https://github.com/kciter/RxGoogleMaps', :tag => "0.1"
   end
@@ -39,13 +39,7 @@ mapView.rx_didTapMarker
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|
-      if target.name.eql?("RxGoogleMaps")
-        target.build_configurations.each do |config|
-          config.build_settings['FRAMEWORK_SEARCH_PATHS'] = ["$(inherited)", "$(PODS_ROOT)/GoogleMaps/Frameworks"]
-        end
-      end
-  
-      if target.name.eql?("Pods-RxGoogleMaps-Sample")
+      if target.name.eql?("Your-App")
         puts "Removing GoogleMaps in #{target.name} OTHER_LDFLAGS"
         target.build_configurations.each do |config|
           xcconfig_path = config.base_configuration_reference.real_path
